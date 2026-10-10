@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Impact & Récompenses</title>
+    <link rel="stylesheet" href="../static/style/impact.css" th:href="@{/style/impact.css}" />
+</head>
+
+<body>
+    <!-- <a th:href="@{/simulator}">Commencez à utiliser l'expérience. <img src="../static/images/direction.png"
+                                                                th:src="@{/images/direction.png}"
+                                                                alt="direction">
+                </a> -->
+    <header class="header-simulator">
+        <div class="header-simulator-left"> EcoShift</div>
+        <div class="header-simulator-right">
+            <a th:href="@{/}" class="header-simulator-right-item">Dashboard</a>
+            <a th:href="@{/simulator}" class="header-simulator-right-item">Simulateur</a>
+            <a th:href="@{/impact}" class="header-simulator-right-item">Impact</a>
+            <a th:href="@{/}" class="header-simulator-right-item">Profile</a>
+        </div>
+    </header>
+    <section class="section-impact">
+        <div class="impact-title-section">
+            <h1 class="impact-title">2. Impact & Récompenses</h1>
+            <p class="impact-text">Suivez votre contribution écologique et vos économies financières. Chaque action compte
+                vers un avenir plus durable.</p>
+        </div>
+    </section>
+</body>
+
+</html>

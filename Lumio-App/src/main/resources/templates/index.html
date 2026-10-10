@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lumio</title>
+    <link rel="stylesheet" href="../static/style/styles.css" th:href="@{/style/styles.css}" />
+</head>
+<body>
+    <header>
+        <h1 class="lumio-title">Lumio, votre assistant énergie</h1>
+    </header>
+    <section class="section-grid-lumio">
+        <div class="section-lumio-logo">
+            <!-- <p>Première phase de la section.</p> -->
+            <img src="../static/images/ecoshift_image.jpg" th:src="@{/images/ecoshift_image.jpg}" alt="Lumio Icon" />
+        </div>
+        <div class="section-lumio-content">
+            <div>
+                <h2>Icon <!-- put the Lumio icon here --> </h2>
+            </div>
+            <div>
+                <h1>Reprenez le contrôle sur votre facture.</h1>
+                <p>Economisez jusqu'à 25% par an sur votre facture en optimisant vos usages
+                    énérgetiques au bon moment.</p>
+            </div>
+            <div class="experience-btn">
+                <!-- <span>         <img th:src="@{images/cat.jpg}" alt="cat"> </span> -->
+                <a th:href="@{/simulator}">Commencez à utiliser l'expérience. <img src="../static/images/direction.png"
+                                                                th:src="@{/images/direction.png}"
+                                                                alt="direction">
+                </a>
+            </div>
+        </div>
+    </section>
+<footer>
+
+</footer>
+</body>
+</html>

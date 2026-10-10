@@ -1,0 +1,108 @@
+.header-simulator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 20%;
+    border-bottom: 2px solid #dedef7;
+    padding: 1rem 2rem;
+}
+
+.header-simulator-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+
+.header-simulator-right a {
+    margin-right: 5rem;
+    text-decoration: none;
+}
+
+/* .header-simulator-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+
+.header-simulator-right div {
+    margin-right: 5rem;
+} */
+
+.section-simulator {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    padding: 1rem 2rem;
+}
+
+.simulator-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 95%;
+    height: 100%;
+    font-size: 1.5rem;
+    gap: 1rem;
+    background-color: #dedef780;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #dedef7;
+}
+
+.btns-simulator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+}
+
+.btns-simulator button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #dedef7;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.btns-simulator button:hover {
+    background-color: #dedef7;
+}
+
+.planning button {
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 2px solid #dedef7;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.planning {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+/* .planning button:hover {
+    background-color: #dedef7;
+}  */

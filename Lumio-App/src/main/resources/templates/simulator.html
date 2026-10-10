@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lumio Simulator </title>
+    <link rel="stylesheet" href="../static/style/simulator.css" th:href="@{/style/simulator.css}" />
+</head>
+
+<body>
+    <header class="header-simulator">
+        <div class="header-simulator-left"> EcoShift</div>
+        <div class="header-simulator-right">
+            <a th:href="@{/}" class="header-simulator-right-item">Dashboard</a>
+            <a th:href="@{/simulator}" class="header-simulator-right-item">Simulateur</a>
+            <a th:href="@{/impact}" class="header-simulator-right-item">Impact</a>
+            <a th:href="@{/}" class="header-simulator-right-item">Profile</a>
+        </div>
+    </header>
+    <section class="section-simulator">
+        <div>
+            <h1>1. Choisissez votre appareil</h1>
+        </div>
+        <div>
+            <h1>Simulateur Shift & Save</h1>
+            <p>Optimisez l'utilisation de vos appareils pour réduire vos coûts et votre empreinte carbone.</p>
+        </div>
+        <div></div>
+        <div class="simulator-time">
+            <p>2. Moment de lancement</p>
+            <div class="btns-simulator">
+                <div><button>Maintenant</button></div>
+                <div><button>Recommendé</button></div>
+            </div>
+            <!-- Afficher la suggestion de Lumio -->
+            <div class="planning">
+                <button>Planifier ce cycle</button>
+            </div>
+        </div>
+        <div class="simulator-result">
+            <!--  -->
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div></div>
+    </section>
+</body>
+
+</html>

@@ -10,7 +10,7 @@ description = 'Lumio'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
+		languageVersion = JavaLanguageVersion.of(19)
 	}
 }
 
@@ -34,4 +34,5 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	//sourceResources sourceSets.main
 }

@@ -10,8 +10,9 @@
 
 <body>
 
-    <section class="login-container">
-        <div class="login-description">
+    <section class="login-container"
+        style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+        <div class="login-description" style="display: flex; flex-direction: column; align-items: left;">
             <div class="logo">EcoShift</div>
             <div class="login-content">
                 <h2>Optimisez votre futur énergétique.</h2>
@@ -35,6 +36,48 @@
         </div>
 
         <div class="login-form">
+
+            <div class="login-form-title">
+                <h3>Bon retour parmi nous.</h3>
+                <p>Accédez à votre tableau de bord énergétique.</p>
+            </div>
+            <form class="login-form">
+                <div>
+                    <label for="name">Nom</label> <br />
+                    <input type="name" id="name" required />
+                </div>
+                <div>
+                    <label for="email">Email</label> <br />
+                    <input type="text" id="email" name="email" required />
+                </div>
+                <div>
+                    <label for="password">Password</label> <br />
+                    <input type="password" name="password" required />
+                </div>
+                <div class="remember">
+                    <span><input type="checkbox" class="remember-accepted" /></span>
+                    <span>Se souvenir de moi.</span>
+                </div>
+                <div>
+                    <button class="login-button" type="submit">Se connecter</button>
+                </div>
+                <div class="connect">
+                    <div>
+                        <span>OU CONTINUER AVEC</span>
+                    </div>
+                    <div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <div>Pas encore de compte ? S'inscrire</div>
+                    </div>
+                    <div class="support">
+                        <div>confidentialité</div>
+                        <div>Support</div>
+                    </div>
+                </div>
+            </form>
 
         </div>
     </section>

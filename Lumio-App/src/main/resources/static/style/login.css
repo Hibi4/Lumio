@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
+    --primary-container: #131b2e;      /* Bleu nuit sombre Stitch */
+    --primary-container-dark: #0b1424; /* Dégradé profond */
     --primary: #000000;
     --on-primary: #ffffff;
-    --background: #f8f9ff;
+    --background: #f8f9ff;             /* Fond clair Stitch */
     --surface-card: #ffffff;
-    --secondary: #006c49;
-    --secondary-badge-bg: #e6f9f0;
+    --secondary: #006c49;             /* Vert énergétique */
+    --secondary-mint: #6ffbbe;        /* Vert menthe luminescent pour accents sombres */
+    --secondary-light: #4edea3;
     --text-primary: #0b1c30;
     --text-muted: #565e74;
+    --text-muted-dark: #8c9bb5;       /* Muted lisible sur fond bleu nuit */
     --outline: #e2e8f0;
     --outline-focus: #000000;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -25,31 +29,581 @@ body {
     background-color: var(--background);
     color: var(--text-primary);
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow-x: hidden;
 }
 
+/* ==========================================================================
+   Conteneur Principal Split-Screen (50/50 plein écran)
+   ========================================================================== */
+.login-container {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    justify-content: stretch !important;
+    box-sizing: border-box;
+}
 
-/* Badge 15% d'économie (Glass panel) */
+/* ==========================================================================
+   Colonne de Gauche (Bleu Nuit Sombre - Identité EcoShift)
+   ========================================================================== */
+.login-description {
+    flex: 1.1;
+    background: linear-gradient(145deg, var(--primary-container) 0%, var(--primary-container-dark) 100%);
+    color: #ffffff;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    padding: 64px 80px !important;
+    position: relative;
+    overflow: hidden;
+    margin-left: 0 !important;
+    box-sizing: border-box;
+}
 
-.potential-rewards {
-    display: flex;
+/* Motif décoratif d'ambiance en arrière-plan */
+.login-description::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    right: -20%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(111, 251, 190, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    display: inline-flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
+    margin-bottom: 36px;
+    z-index: 1;
+}
+
+.logo::before {
+    content: "⚡";
+    color: var(--secondary-mint);
+    font-size: 26px;
+}
+
+.login-content {
+    z-index: 1;
+}
+
+.login-content h2 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    max-width: 520px;
+}
+
+.login-text-description {
+    z-index: 1;
+}
+
+.login-text-description p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-muted-dark);
+    margin: 0 0 44px 0;
+    max-width: 480px;
+}
+
+/* Badges statistiques (Économies & Réduction CO2) */
+.potential-rewards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    width: 100%;
+    max-width: 480px;
+    z-index: 1;
 }
 
 .potential-rewards div {
-
-    padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--outline);
-    border-left: 4px solid var(--secondary);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.potential-rewards div:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.potential-rewards p:first-child {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--secondary-light);
+    margin: 0 0 6px 0;
+}
+
+.potential-rewards p:last-child {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Colonne de Droite (Formulaire de Connexion)
+   ========================================================================== */
+div.login-form {
+    flex: 1;
+    background-color: var(--background);
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 60px 48px !important;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.login-form-title {
     width: 100%;
-    max-width: 320px;
+    max-width: 440px;
+    margin-bottom: 28px;
+    text-align: start;
+}
+
+.login-form-title h3 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin: 0 0 6px 0;
+}
+
+.login-form-title p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Formulaire interne */
+form.login-form {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: start;
+}
+
+form.login-form > div:not(.remember):not(.connect) {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+form.login-form > div br {
+    display: none;
+}
+
+form.login-form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Champs de saisie */
+form.login-form input[type="text"],
+form.login-form input[type="email"],
+form.login-form input[type="password"],
+form.login-form input[type="name"],
+form.login-form input:not([type="checkbox"]):not([type="submit"]) {
+    width: 100%;
+    height: 44px;
+    padding: 10px 14px;
+    background-color: #ffffff;
+    border: 1px solid var(--outline);
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--text-primary);
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+form.login-form input:focus {
+    border-color: var(--outline-focus);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--outline-focus);
+}
+
+/* Option "Se souvenir de moi" */
+.remember {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px;
+    width: 100%;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 4px 0 8px 0;
+    cursor: pointer;
+}
+
+.remember input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--secondary);
+    cursor: pointer;
+}
+
+/* Bouton principal de connexion */
+.login-button {
+    width: 100%;
+    height: 46px;
+    background-color: var(--primary-container);
+    color: var(--on-primary);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-button:hover {
+    background-color: #000000;
+}
+
+.login-button:active {
+    transform: scale(0.99);
+}
+
+/* Section "OU CONTINUER AVEC" & Connexion Sociale */
+.connect {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.connect > div:first-child {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    gap: 12px;
+}
+
+.connect > div:first-child::before,
+.connect > div:first-child::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid var(--outline);
+}
+
+.connect > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.connect > div:nth-child(2) > div:first-child::after {
+    content: "Google";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    border: 1px solid var(--outline);
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.connect > div:nth-child(2) > div:last-child::after {
+    content: "Apple";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    border: 1px solid var(--outline);
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.connect > div:nth-child(2) > div:hover::after {
+    background-color: #f1edec;
+    border-color: #cbd5e1;
+}
+
+/* Lien d'inscription */
+.connect > div:nth-child(3) {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.connect > div:nth-child(3) div {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.connect > div:nth-child(3) div:hover {
+    color: var(--secondary);
+}
+
+/* Barre de statut système / Confidentialité / Support */
+.support {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--outline);
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.support::before {
+    content: "● Système Opérationnel";
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.support div {
+    cursor: pointer;
+    transition: color 0.2s;
+    text-transform: capitalize;
+}
+
+.support div:hover {
+    color: var(--primary);
+}
+
+/* ==========================================================================
+   Responsive Design (Tablettes et Mobiles)
+   ========================================================================== */
+
+@media (max-width: 960px) {
+    .login-container {
+        flex-direction: column !important;
+        min-height: auto;
+    }
+
+    .login-description {
+        flex: none;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 48px 32px !important;
+    }
+
+    .login-content h2 {
+        font-size: 32px;
+    }
+
+    .potential-rewards {
+        max-width: 100%;
+    }
+
+    div.login-form {
+        flex: none;
+        width: 100% !important;
+        padding: 48px 24px !important;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .login-description {
+        padding: 32px 20px !important;
+    }
+
+    .logo {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .login-content h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .login-text-description p {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .potential-rewards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .potential-rewards div {
+        padding: 14px 18px;
+    }
+
+    .potential-rewards p:last-child {
+        font-size: 26px;
+    }
+
+    div.login-form {
+        padding: 36px 18px !important;
+    }
+
+    .login-form-title h3 {
+        font-size: 22px;
+    }
+
+    .support {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+
+.support::before {
+    content: "● Système Opérationnel";
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.support div {
+    cursor: pointer;
+    transition: color 0.2s;
+    text-transform: capitalize;
+}
+
+.support div:hover {
+    color: var(--primary);
+}
+
+/* ==========================================================================
+   Responsive Design (Tablettes et Mobiles)
+   ========================================================================== */
+
+@media (max-width: 960px) {
+    .login-container {
+        flex-direction: column !important;
+        min-height: auto;
+    }
+
+    .login-description {
+        flex: none;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 48px 32px !important;
+    }
+
+    .login-content h2 {
+        font-size: 32px;
+    }
+
+    .potential-rewards {
+        max-width: 100%;
+    }
+
+    div.login-form {
+        flex: none;
+        width: 100% !important;
+        padding: 48px 24px !important;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 520px) {
+    .login-description {
+        padding: 32px 20px !important;
+    }
+
+    .logo {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .login-content h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .login-text-description p {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .potential-rewards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .potential-rewards div {
+        padding: 14px 18px;
+    }
+
+    .potential-rewards p:last-child {
+        font-size: 26px;
+    }
+
+    div.login-form {
+        padding: 36px 18px !important;
+    }
+
+    .login-form-title h3 {
+        font-size: 22px;
+    }
+
+    .support {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
 }

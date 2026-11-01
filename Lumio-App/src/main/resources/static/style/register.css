@@ -1,44 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #000000;
+    --on-primary: #ffffff;
+    --background: #f8f9ff;
+    --surface-card: #ffffff;
+    --secondary: #006c49;
+    --secondary-badge-bg: #e6f9f0;
+    --text-primary: #0b1c30;
+    --text-muted: #565e74;
+    --outline: #e2e8f0;
+    --outline-focus: #000000;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: var(--background);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+/* Container principal avec gestion du responsive */
 .register-container {
-    display: grid;
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(237, 231, 231);
-    grid-template-columns: 50% 50%;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
+    padding: 48px 24px;
+    margin: 0 auto;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 48px;
+    box-sizing: border-box;
 }
 
+/* Colonne de gauche (Présentation de la marque) */
 .register-description {
-    max-height: max-content;
-    width: 45%;
-    margin-left: 4rem;
-    font-size: 2rem;
+    flex: 1;
+    max-width: 520px;
+    width: 100%;
+    margin-left: 0 !important;
+    font-size: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
 }
 
+.register-logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.register-logo::before {
+    content: "⚡";
+    font-size: 22px;
+}
+
+.register-content {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.register-content span[style*="green"],
+.register-content span:last-child {
+    color: var(--secondary) !important;
+}
+
+.register-text-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+    max-width: 440px;
+}
+
+/* Badge 15% d'économie (Glass panel) */
+.register-rewards {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--outline);
+    border-left: 4px solid var(--secondary);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+    width: 100%;
+    max-width: 420px;
+}
+
+.register-rewards div:first-child::before {
+    content: "🌱";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--secondary-badge-bg);
+    font-size: 20px;
+}
+
+.register-rewards div:last-child {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Colonne de droite (Carte du formulaire) */
 .register-form {
+    flex: 1;
+    max-width: 460px;
+    width: 100%;
+    background-color: var(--surface-card);
+    border: 1px solid var(--outline);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 25px -5px rgba(11, 28, 48, 0.05), 0 8px 10px -6px rgba(11, 28, 48, 0.03);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    font-size: 2em;
-    margin-right: 2rem;
     text-align: start;
+    font-size: 1rem;
+    margin-right: 0;
 }
 
-.register-form input {
-    height: 30px;
-    width: 350px;
-    margin-top: 10px;
-    border-radius: 5px;
+.form-register-description {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
 }
 
-.register-form div {
-    padding-bottom: 20px;
+.form-register-content p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0 0 24px 0;
 }
 
+.register-form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
+.register-form form > div:not(.condition-of-use):not(.share-data):not(.connect-method) {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    padding-bottom: 0 !important;
+}
 
-/* .form-register-description {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: var(--);
-} */
+.register-form form > div br {
+    display: none;
+}
+
+.register-form label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"],
+.register-form input[type="name"],
+.register-form input:not([type="checkbox"]):not([type="submit"]) {
+    width: 100%;
+    height: 42px;
+    padding: 8px 14px;
+    background-color: var(--background);
+    border: 1px solid var(--outline);
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    color: var(--text-primary);
+    transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+.register-form input:focus {
+    border-color: var(--outline-focus);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--outline-focus);
+}
+
+/* Conditions d'utilisation & partage de données */
+.condition-of-use,
+.share-data {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 10px;
+    width: 100%;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.45;
+    padding-bottom: 0 !important;
+}
+
+.condition-of-use input[type="checkbox"],
+.share-data input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    accent-color: var(--secondary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Bouton principal de création de compte */
+.create-account {
+    width: 100%;
+    height: 46px;
+    margin-top: 8px;
+    background-color: var(--primary);
+    color: var(--on-primary);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-account:hover {
+    background-color: #1e293b;
+}
+
+.create-account:active {
+    transform: scale(0.99);
+}
+
+/* Section "Ou continuer avec" & Liens */
+.connect-method {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    margin-top: 4px;
+    padding-bottom: 0 !important;
+    text-align: center;
+}
+
+.connect-method > div:first-child {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    gap: 12px;
+    padding-bottom: 0 !important;
+}
+
+.connect-method > div:first-child::before,
+.connect-method > div:first-child::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid var(--outline);
+}
+
+.connect-method > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding-bottom: 0 !important;
+}
+
+.connect-method > div:nth-child(2) > div:first-child::after {
+    content: "Google";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 38px;
+    border: 1px solid var(--outline);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.connect-method > div:nth-child(2) > div:last-child::after {
+    content: "Apple";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 38px;
+    border: 1px solid var(--outline);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.connect-method > div:nth-child(2) > div:hover::after {
+    background-color: var(--background);
+}
+
+.connect-method > div:last-child {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--text-muted);
+    padding-bottom: 0 !important;
+}
+
+.connect-method > div:last-child div {
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Responsive Design (Tablettes et Mobiles)
+   ========================================================================== */
+
+@media (max-width: 960px) {
+    .register-container {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 40px 20px !important;
+        gap: 36px;
+    }
+
+    .register-description {
+        max-width: 460px;
+        width: 100%;
+    }
+
+    .register-content {
+        font-size: 32px;
+    }
+
+    .register-rewards {
+        max-width: 100%;
+    }
+
+    .register-form {
+        max-width: 460px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .register-container {
+        padding: 24px 16px !important;
+        gap: 28px;
+    }
+
+    .register-logo {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .register-content {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .register-text-description {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .register-form {
+        padding: 24px 18px;
+        border-radius: 12px;
+    }
+
+    .form-register-description {
+        font-size: 20px;
+    }
+
+    .form-register-content p {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+}
